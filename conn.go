@@ -15,7 +15,8 @@ const (
 )
 
 var (
-	ErrBadTcpConn = errors.New("无效的tcp连接")
+	ErrBadTcpConn   = errors.New("无效的tcp连接")
+	ErrResponseType = fmt.Errorf("返回结果类型无效")
 )
 
 type RedisConn struct {

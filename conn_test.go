@@ -1,6 +1,7 @@
 package gredis
 
 import (
+	"fmt"
 	"testing"
 	"time"
 )
@@ -14,5 +15,10 @@ func TestDial(t *testing.T) {
 	}
 
 	RedisConn := NewRedisConn(conn)
-	RedisConn.writeLen('*', 5)
+	//RedisConn.writeLen('*', 5)
+	setval, err := RedisConn.Set("mykey", "myval")
+	if err != nil {
+		t.Error(err)
+	}
+	fmt.Println(setval)
 }
